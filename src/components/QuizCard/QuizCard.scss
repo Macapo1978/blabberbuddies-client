@@ -1,0 +1,32 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.card{
+    border-radius: 25px;
+    border: 2px solid $color-button-select;
+    background-color: $color-linen;
+    margin: 1rem;
+    width: 9rem;
+    height: 9rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: Quicksand;
+
+    &_title{
+        color: $color-blue;
+    }
+    &_button{
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+        background-color: $color-button-select;
+        margin: 0 1rem;
+        &--practise{
+            background-color: $color-sunset;
+            border: 3px solid $color-grey;
+        }
+    }
+
+}
