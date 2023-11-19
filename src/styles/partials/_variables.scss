@@ -1,0 +1,37 @@
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+:root {
+  --padding-body: 1rem;
+  --h1-size: 1.875rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.125rem;
+  --h4-size: 1rem;
+  --body-size: 1.25rem;
+  --nav-size: 1.25rem;
+  
+  @media (min-width: $tablet-breakpoint) {
+    --site-padding: 1.5rem;
+    --letter-width: 50rem;
+
+    --text-heading-size: 2.5rem;
+    --text-subheading-size: 2rem;
+    --text-card-label-size: 1.25rem;
+    --text-search-size: 1rem;
+    --text-body-size: 1.25rem;
+    --text-nav-size: 1.25rem;
+  }
+
+}
+
+$padding-body: var(--padding-body);
+
+$color-linen: #F2E8DA;
+$color-button-select: #DB393C;
+$color-blue: #3A4A6A;
+$color-grey: #575A5C;
+$color-sunset: #F6CB86;
+
+
+
+
