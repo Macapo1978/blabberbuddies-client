@@ -1,0 +1,12 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+html {
+    font-size: 100%;
+}
+
+body {
+    @include body-text;
+    font-family: Quicksand, Helvetica, Arial, sans-serif;
+    color: $color-linen;
+}
