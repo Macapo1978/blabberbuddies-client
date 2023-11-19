@@ -1,0 +1,9 @@
+@import '../../styles/partials/variables';
+@import '../../styles/partials/global';
+
+.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $color-linen;
+}
