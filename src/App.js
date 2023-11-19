@@ -1,20 +1,35 @@
 import './App.scss';
+import axios from "axios";
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { HomePage } from './pages/HomePage/HomePage';
-import { Nav } from './components/Nav/Nav';
-import { Footer } from './components/Footer/Footer';
 import { useEffect, useState } from 'react';
+import LoginForm from "./pages/LoginForm/LoginForm";
+import HomePage from "./pages/HomePage/HomePage";
 
-export function App() {
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [idUser, setIdUser] = useState(null);
+
+  const handleLogin = async (username, password) => {
+    try {
+      // ...
+
+      // ver llamar al endpoint del user
+      setIdUser(1);
+      setLoggedIn(true);
+      // ...
+    } catch (error) {
+      console.error('Error fetching user data:', error.message);
+    }
+  }
 
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
-        <Route path="/" 
-        element={<HomePage />}/>
+        <Route path="/" element={loggedIn ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
+
+export default App;
