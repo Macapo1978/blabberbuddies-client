@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LoginForm from "./pages/LoginForm/LoginForm";
 import HomePage from "./pages/HomePage/HomePage";
+import QuizPage from './pages/QuizPage/QuizPage';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={loggedIn ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
+        <Route path="/quiz/:idQuiz/:idUser" element={<QuizPage/>}/>
       </Routes>
     </BrowserRouter>
   );

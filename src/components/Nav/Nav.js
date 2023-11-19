@@ -1,11 +1,11 @@
-import "./Nav.scss"
+import "./Nav.scss";
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import logo from '../../assets/images/logo_transparent.png'
 
 
-export const Nav = ({userId}) => {
+const Nav = ({userId}) => {
     const [dataUser, setDataUser] = useState({});
 
     useEffect(() => {
