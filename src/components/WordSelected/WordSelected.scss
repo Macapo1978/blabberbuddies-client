@@ -1,0 +1,23 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.word{
+    &__card{
+
+        &-title{
+            font-weight: bold;
+            color: $color-grey;
+        }
+        &-repeat{
+            background-color: $color-button-select;
+            color: $color-linen;
+            border-radius: 3px;
+            padding: 0.5rem 1rem;
+        }
+    }
+    &__image{
+        background-color: $color-blue;
+    }
+
+}

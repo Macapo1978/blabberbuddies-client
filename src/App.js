@@ -9,7 +9,7 @@ import QuizPage from './pages/QuizPage/QuizPage';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [idUser, setIdUser] = useState(null);
+  const [idUser, setIdUser] = useState();
 
   const handleLogin = async (username, password) => {
     try {
@@ -19,6 +19,7 @@ const App = () => {
       setIdUser(1);
       setLoggedIn(true);
       // ...
+console.log(idUser);
     } catch (error) {
       console.error('Error fetching user data:', error.message);
     }
@@ -27,7 +28,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={loggedIn ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
+        <Route path="/" element={loggedIn && idUser ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/quiz/:idQuiz/:idUser" element={<QuizPage/>}/>
       </Routes>
     </BrowserRouter>
