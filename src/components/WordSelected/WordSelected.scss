@@ -5,15 +5,16 @@
 .word{
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
-    width: 30%;
+    flex-direction: row;
+    width: 90%;
+    margin: 2rem;
     
     &__card{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         padding: 1rem;
-        border-top: 1px solid $color-blue;
+        width: 50%;
 
         &-button{
             background-color: $color-button-select;
@@ -28,7 +29,7 @@
         }
     }
     &__image{
-        background-color: $color-blue;
+        width: 50%;
     }
 
 }

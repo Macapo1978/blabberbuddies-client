@@ -45,7 +45,10 @@ const WordSelected = ({wordId}) => {
             </article>
             <section className="word__image">
             {dataWord  && (                
-                <ImagesWord wordSearch={dataWord.word}/>
+                <ImagesWord 
+                    wordSearch={dataWord.word}
+                    category={dataWord.categories_description}    
+                />
             )} 
             </section>
         </section>

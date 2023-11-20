@@ -11,15 +11,30 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [idUser, setIdUser] = useState();
 
+  useEffect(() => {
+    const fetchLoguin = async () => {
+      try{
+        // ver llamar al endpoint del user
+        // si traigo toda la data del usuario entonces
+        setIdUser(1);
+        
+      } catch(error){
+        console.log("Error fetching data user.")
+      }
+    }
+    fetchLoguin();
+  }, [loggedIn])
+
   const handleLogin = async (username, password) => {
     try {
       // ...
-
-      // ver llamar al endpoint del user
-      setIdUser(1);
+      // si usuario y clave valida setear en true el logeo
       setLoggedIn(true);
+      
+      
+      
       // ...
-console.log(idUser);
+console.log("el usario es:",idUser);
     } catch (error) {
       console.error('Error fetching user data:', error.message);
     }
