@@ -19,9 +19,8 @@ const QuizPage = () => {
                 if (data.length !== 0){
                     setQuizData(data);
                     if (data[0].words && data[0].words.length !== 0){
-console.log("estoy aca", data[0].words);                        
                         setWordList(data[0].words);
-                    
+                        setQuizData(data);
                         if (!wordSelected){
                             setWordSelected(data[0].words[0].word_id);
                         }
@@ -38,15 +37,19 @@ console.log("estoy aca", data[0].words);
     return (
 
         <main className="quiz">
-            
-            <WordSelected wordId={wordSelected} />
-            
-            {wordList.length > 0 && (
-            <WordsList 
-                wordId={wordSelected}
-                wordList={wordList.map(item => item.word_id)} 
-            />
-            )}
+            <section>
+            {wordSelected && (
+                <WordSelected wordId={wordSelected} />
+                )}
+            </section>
+            <section>
+                {wordList.length > 0 && (
+                <WordsList 
+                    wordId={wordSelected}
+                    wordList={wordList.map(item => item.word_id)} 
+                />
+                )}
+            </section>
         </main>
     )
 };
