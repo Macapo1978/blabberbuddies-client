@@ -30,9 +30,9 @@ const TranslateWord = ({wordTranslate, originLanguage, destinLanguage}) => {
     }, [wordTranslate, originLanguage, destinLanguage]);
 
     return(
-        <section className="translation">
+        <>
             {translatedWord}
-        </section>
+        </>
     );
 
 };

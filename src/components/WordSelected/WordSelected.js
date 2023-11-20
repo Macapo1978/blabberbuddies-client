@@ -29,20 +29,19 @@ const WordSelected = ({wordId}) => {
         <section className="word">
             
             <article className="word__card">
-                <h4 className="word__card-title">{dataWord.word}</h4>
-                <button className="word__card-repeat">
-                    Repeat with me
+                <button className="word__card-button">
+                    {dataWord.word}
                 </button>
-                <h1>{dataWord.word}</h1>
-            </article> 
-            <article className="word__card">
-            {dataWord  && (           
-                <TranslateWord 
-                    wordTranslate={dataWord.word}
-                    originLanguage={dataWord.language_description}
-                    destinLanguage={"es"} // aca tengo que pasar el lenguaje nativo del usuario
-                />
-            )}
+                <button className="word__card-button word__card-button--secondary">
+                    {dataWord  && (     
+                            
+                        <TranslateWord 
+                            wordTranslate={dataWord.word}
+                            originLanguage={dataWord.language_description}
+                            destinLanguage={"es"} // aca tengo que pasar el lenguaje nativo del usuario
+                        />
+                    )}
+                </button>
             </article>
             <section className="word__image">
             {dataWord  && (                

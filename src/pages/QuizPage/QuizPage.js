@@ -37,15 +37,19 @@ const QuizPage = () => {
     return (
 
         <main className="quiz">
+            <section>
             {wordSelected && (
-            <WordSelected wordId={wordSelected} />
-            )}
-            {wordList.length > 0 && (
-            <WordsList 
-                wordId={wordSelected}
-                wordList={wordList.map(item => item.word_id)} 
-            />
-            )}
+                <WordSelected wordId={wordSelected} />
+                )}
+            </section>
+            <section>
+                {wordList.length > 0 && (
+                <WordsList 
+                    wordId={wordSelected}
+                    wordList={wordList.map(item => item.word_id)} 
+                />
+                )}
+            </section>
         </main>
     )
 };

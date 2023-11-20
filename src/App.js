@@ -1,5 +1,5 @@
 import './App.scss';
-import axios from "axios";
+import Nav from "./components/Nav/Nav";
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -27,6 +27,7 @@ console.log(idUser);
 
   return (
     <BrowserRouter>
+      <Nav userId={idUser}/>
       <Routes>
         <Route path="/" element={loggedIn && idUser ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
         <Route path="/quiz/:idQuiz/:idUser" element={<QuizPage/>}/>
