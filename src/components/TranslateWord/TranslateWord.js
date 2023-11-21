@@ -31,7 +31,7 @@ const TranslateWord = ({wordTranslate, originLanguage, destinLanguage}) => {
 
     return(
         <>
-            {translatedWord}
+            {translatedWord || "Translating"}
         </>
     );
 

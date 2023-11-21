@@ -5,7 +5,7 @@ import axios from "axios";
 
 const QuizCard = ({dataQuiz, userId}) => {
     const [quizUser, setQuizUser] = useState({});
-
+    const wordID = 0;
     useEffect(() => {
         const fetchQuizUser = async (userId, quizId) => {
             try{
@@ -17,7 +17,6 @@ const QuizCard = ({dataQuiz, userId}) => {
                 if (data) {
                     setQuizUser(data);
                 }
-console.log("largo de data", Object.keys(quizUser).length);
             }catch(error){
                 console.log("Error fetching data quiz user.")
             }
@@ -27,7 +26,7 @@ console.log("largo de data", Object.keys(quizUser).length);
     }, []);
 
     return(
-        <Link to={`/quiz/${dataQuiz.id}/${userId}`}>
+        <Link to={`/quiz/${dataQuiz.id}/${userId}/${wordID}`}>
             <article className="card">
                 <h3 className="card_title">{dataQuiz.name}</h3>
                 <button className={Object.keys(quizUser).length === 0 ? "card_button" : "card_button--practise"}>

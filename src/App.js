@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import LoginForm from "./pages/LoginForm/LoginForm";
 import HomePage from "./pages/HomePage/HomePage";
 import QuizPage from './pages/QuizPage/QuizPage';
-import WordSelected from './components/WordSelected/WordSelected';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -46,8 +45,7 @@ console.log("el usario es:",idUser);
       <Nav userId={idUser}/>
       <Routes>
         <Route path="/" element={loggedIn && idUser ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
-        <Route path="/quiz/:idQuiz/:idUser" element={<QuizPage/>}/>
-        <Route path='/word' element={<WordSelected />}></Route>
+        <Route path="/quiz/:idQuiz/:idUser/:idWord" element={<QuizPage/>}/>
       </Routes>
     </BrowserRouter>
   );
