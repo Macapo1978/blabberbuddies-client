@@ -1,0 +1,28 @@
+@import '../../styles/partials/variables';
+@import '../../styles/partials/global';
+
+.wordlist{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    width: 40%;
+    align-items: center;
+
+    &__button{
+        background-color: $color-blue;
+        color: $color-linen;
+        padding: 0.5rem 1rem;
+        border-radius: 60px;
+        margin: 0.5rem;
+        width: 8rem;
+        height: 4rem;
+
+        &--selected{
+            background-color: $color-button-select;
+        }
+
+    }
+
+
+}

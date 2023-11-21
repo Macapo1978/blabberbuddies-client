@@ -6,8 +6,7 @@ import ImagesWord from '../ImagesWord/ImagesWord';
 
 const WordSelected = ({wordId}) => {
     const [dataWord, setDataWord] = useState({});
-    const [dataWordId, setDataWordId] = useState(wordId)
-
+console.log(wordId, "estoy en linea 10 de wordselected este es el id de word")
     useEffect(() => {
         const fetchWord = async () => {
             try{
@@ -23,11 +22,20 @@ const WordSelected = ({wordId}) => {
 
         fetchWord();
 
-    }, [dataWordId]);
+    }, [wordId]);
 
     return (
+
         <section className="word">
             
+            <section className="word__image">
+            {dataWord  && (                
+                <ImagesWord 
+                    wordSearch={dataWord.word}
+                    category={dataWord.categories_description}    
+                />
+            )} 
+            </section>
             <article className="word__card">
                 <button className="word__card-button">
                     {dataWord.word}
@@ -43,14 +51,6 @@ const WordSelected = ({wordId}) => {
                     )}
                 </button>
             </article>
-            <section className="word__image">
-            {dataWord  && (                
-                <ImagesWord 
-                    wordSearch={dataWord.word}
-                    category={dataWord.categories_description}    
-                />
-            )} 
-            </section>
         </section>
 
     );

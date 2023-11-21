@@ -6,9 +6,15 @@ import WordSelected from "../../components/WordSelected/WordSelected";
 import WordsList from "../../components/WordsList/WordsList";
 
 const QuizPage = () => {
-    const {idQuiz, idUser} = useParams();
-    const [quizData, setQuizData] = useState([]);
+    const {idQuiz, idUser, idWord} = useParams();
     const [wordSelected, setWordSelected] = useState();
+    
+    useEffect(() => {
+        if (idWord !== "0" && idWord !== undefined) {
+            console.log(idWord, "estoy en quiz page id word")            
+            setWordSelected(idWord);
+        }
+    }, [idWord]);
     const [wordList, setWordList] = useState([]);
 
     useEffect(() => {
@@ -17,10 +23,8 @@ const QuizPage = () => {
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/quizzes/${idQuiz}`);
                 const data = response.data;
                 if (data.length !== 0){
-                    setQuizData(data);
                     if (data[0].words && data[0].words.length !== 0){
                         setWordList(data[0].words);
-                        setQuizData(data);
                         if (!wordSelected){
                             setWordSelected(data[0].words[0].word_id);
                         }
@@ -37,19 +41,17 @@ const QuizPage = () => {
     return (
 
         <main className="quiz">
-            <section>
+            {wordList.length > 0 && (
+            <WordsList 
+                wordId={wordSelected}
+                wordList={wordList.map(item => item.word_id)} 
+                quizID={idQuiz}
+                userID={idUser}
+            />
+            )}
             {wordSelected && (
-                <WordSelected wordId={wordSelected} />
-                )}
-            </section>
-            <section>
-                {wordList.length > 0 && (
-                <WordsList 
-                    wordId={wordSelected}
-                    wordList={wordList.map(item => item.word_id)} 
-                />
-                )}
-            </section>
+            <WordSelected wordId={wordSelected} />
+            )}
         </main>
     )
 };

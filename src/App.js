@@ -45,7 +45,7 @@ console.log("el usario es:",idUser);
       <Nav userId={idUser}/>
       <Routes>
         <Route path="/" element={loggedIn && idUser ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
-        <Route path="/quiz/:idQuiz/:idUser" element={<QuizPage/>}/>
+        <Route path="/quiz/:idQuiz/:idUser/:idWord" element={<QuizPage/>}/>
       </Routes>
     </BrowserRouter>
   );
