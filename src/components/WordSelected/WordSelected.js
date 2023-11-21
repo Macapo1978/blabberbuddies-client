@@ -1,12 +1,16 @@
 import "./WordSelected.scss";
 import { useEffect, useState } from "react";
+import { useSpeechSynthesis } from 'react-speech-kit';
 import axios from "axios";
 import TranslateWord from '../TranslateWord/TranslateWord';
 import ImagesWord from '../ImagesWord/ImagesWord';
+import SpeechButton from '../SpeechButton/SpeechButton'; 
+
 
 const WordSelected = ({wordId}) => {
     const [dataWord, setDataWord] = useState({});
-console.log(wordId, "estoy en linea 10 de wordselected este es el id de word")
+    const [translatedText, setTranslatedText] = useState();
+
     useEffect(() => {
         const fetchWord = async () => {
             try{
@@ -14,6 +18,20 @@ console.log(wordId, "estoy en linea 10 de wordselected este es el id de word")
                 const data = response.data;
                 if (data){
                     setDataWord(data);
+
+                    const translationResponse  = await axios
+                        .post(`${process.env.REACT_APP_BACKEND_URL}/api/tranlateText`,
+                            {
+                                text: data.word,
+                                originLanguage: data.language_description,
+                                translateLanguage: "es" //aca tengo que poner el language del user
+                            }
+                        );
+                    const translationData = translationResponse.data;
+                    if (translationData) {
+                        setTranslatedText(translationData.translation);
+                    }
+
                 }
             }catch(error){
                 console.log("Error fetching data Word.")
@@ -23,6 +41,7 @@ console.log(wordId, "estoy en linea 10 de wordselected este es el id de word")
         fetchWord();
 
     }, [wordId]);
+
 
     return (
 
@@ -37,19 +56,15 @@ console.log(wordId, "estoy en linea 10 de wordselected este es el id de word")
             )} 
             </section>
             <article className="word__card">
-                <button className="word__card-button">
-                    {dataWord.word}
-                </button>
-                <button className="word__card-button word__card-button--secondary">
-                    {dataWord  && (     
-                            
-                        <TranslateWord 
-                            wordTranslate={dataWord.word}
-                            originLanguage={dataWord.language_description}
-                            destinLanguage={"es"} // aca tengo que pasar el lenguaje nativo del usuario
-                        />
-                    )}
-                </button>
+                <SpeechButton
+                    textToSpeak={dataWord.word}
+                    buttonClasses="word__card-button"
+                />
+                {translatedText  && (
+                    <SpeechButton
+                        textToSpeak={translatedText}
+                        buttonClasses="word__card-button word__card-button--secondary"
+                    />)}
             </article>
         </section>
 
