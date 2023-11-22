@@ -1,17 +1,20 @@
 import React from 'react';
-import { useSpeechSynthesis } from 'react-speech-kit';
+// import { useSpeechSynthesis } from 'react-speech-kit';
 
 
 const SpeechButton = ({ textToSpeak, buttonClasses }) => {
-    const { speak } = useSpeechSynthesis();
+    // const { speak } = useSpeechSynthesis();
     
-    const handleSpeech = () => {
-        speak({ text: textToSpeak });
-    };
+    // const handleSpeech = () => {
+    //     speak({ text: textToSpeak });
+    // };
   
     return (
-        <button onClick={handleSpeech} className={buttonClasses}>
-            {textToSpeak}
+        // <button onClick={handleSpeech} className={buttonClasses}>
+        //     {textToSpeak}
+        // </button>
+        <button className={buttonClasses}>
+             {textToSpeak}
         </button>
     );
   };

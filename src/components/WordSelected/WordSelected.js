@@ -1,6 +1,5 @@
 import "./WordSelected.scss";
 import { useEffect, useState } from "react";
-import { useSpeechSynthesis } from 'react-speech-kit';
 import axios from "axios";
 import TranslateWord from '../TranslateWord/TranslateWord';
 import ImagesWord from '../ImagesWord/ImagesWord';
