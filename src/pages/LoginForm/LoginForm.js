@@ -22,7 +22,8 @@ console.log(data);
   
   return (
     <main className='loginForm'>
-      <h3 className="loginForm-title">Hello Kids!Let's play and learn!</h3>
+      <h1 className="loginForm-title">Hello Kids!</h1>
+      <h2 className="loginForm-subtitle">Let's play and learn!</h2>
       <div className="loginForm-list">
           {patientsData.map(patient => 
               <Patient 
