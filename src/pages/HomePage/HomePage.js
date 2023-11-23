@@ -2,9 +2,10 @@ import './HomePage.scss';
 import Nav from "../../components/Nav/Nav";
 import QuizList from "../../components/QuizList/QuizList";
 import React, { useEffect, useState } from 'react';
+import { usePatientData } from '../../PatientDataContext';
 
 const HomePage = () => {
-  const [patientData, setPatientData] = useState(null);
+  const { patientData, updatePatientData } = usePatientData();
 
   useEffect(() => {
     const getPatientDataFromLocalStorage = () => {
@@ -12,8 +13,7 @@ const HomePage = () => {
         const storedData = localStorage.getItem('patientData');
         if (storedData) {
           const jsonData = JSON.parse(storedData);
-          setPatientData(jsonData);
-console.log(jsonData, "estoy en home");  
+          updatePatientData(jsonData);
         }
       } catch (error) {
         console.error('Error getting data from local sesion:', error);
@@ -24,10 +24,12 @@ console.log(jsonData, "estoy en home");
   }, []); 
 
   return (
+    <>
+    <Nav/>
     <main className="home">
-      <Nav name={patientData?.namePatient} lastname={patientData?.lastNamePatient} />
       <QuizList userId={patientData?.userId} />
     </main>
+    </>
   );
 };
 

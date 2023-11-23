@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import './QuizPage.scss';
 import WordSelected from "../../components/WordSelected/WordSelected";
 import WordsList from "../../components/WordsList/WordsList";
+import Nav from "../../components/Nav/Nav";
 
 const QuizPage = () => {
     const {idQuiz, idUser, idWord} = useParams();
@@ -39,7 +40,8 @@ const QuizPage = () => {
 
 
     return (
-
+        <>
+        <Nav/>
         <main className="quiz">
             {wordList.length > 0 && (
             <WordsList 
@@ -53,6 +55,7 @@ const QuizPage = () => {
             <WordSelected wordId={wordSelected} />
             )}
         </main>
+        </>
     )
 };
 
