@@ -1,22 +1,19 @@
 import React from 'react';
-// import { useSpeechSynthesis } from 'react-speech-kit';
-
+import { SayButton } from 'react-say';
 
 const SpeechButton = ({ textToSpeak, buttonClasses }) => {
-    // const { speak } = useSpeechSynthesis();
+  const handleSpeech = () => {
+    console.log("Estoy aquí");
     
-    // const handleSpeech = () => {
-    //     speak({ text: textToSpeak });
-    // };
-  
-    return (
-        // <button onClick={handleSpeech} className={buttonClasses}>
-        //     {textToSpeak}
-        // </button>
-        <button className={buttonClasses}>
-             {textToSpeak}
-        </button>
-    );
   };
 
-  export default SpeechButton;
+  return (
+    <div className={buttonClasses}>
+        <SayButton onClick={handleSpeech} text={textToSpeak}>
+             {textToSpeak}
+        </SayButton>
+       
+    </div>
+   
+  );
+};
