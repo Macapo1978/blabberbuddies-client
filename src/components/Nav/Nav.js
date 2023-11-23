@@ -2,9 +2,10 @@ import "./Nav.scss";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo_transparent.png'
 import ImgKidsAvatar from '../../assets/images/kidsNav.png'
+import { usePatientData } from "../../PatientDataContext";
 
-const Nav = ({name, lastname}) => {
-console.log("nombre y apellido ", name, lastname)   
+const Nav = () => {
+    const { patientData } = usePatientData();
 
     return (
         <nav className="nav">
@@ -16,7 +17,7 @@ console.log("nombre y apellido ", name, lastname)
             </Link>
             <div className="nav__ctn">
                 <img className="nav__ctn-img" src={ImgKidsAvatar}></img>
-                <p className="nav__ctn-user">Hello {name} {lastname}</p>
+                <p className="nav__ctn-user">Hello {patientData?.namePatient} {patientData?.lastNamePatient}</p>
             </div>
         </nav>
     );
