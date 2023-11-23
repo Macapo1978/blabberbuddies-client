@@ -1,0 +1,30 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    padding: 2rem;
+    font-family: Quicksand;
+
+    &-title{
+        font-size: $h1-size;
+        margin: 1rem;
+    }
+    &-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        @include tablet{
+            flex-direction: row;
+        }
+    }
+
+}

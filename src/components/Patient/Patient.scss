@@ -2,46 +2,86 @@
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
 
+$border-radius: 1rem;
+$padding-margin: 0.5rem;
+
 .article {
+    position: relative;
+    height: 10rem;
+    width: 18rem;
+    margin: 1rem;
+    background-color: $color-linen;
+    border-radius: $border-radius;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    text-align: center;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    padding: 20px;
-    border-radius: 10px;
-    width: 20rem;
-  
+    justify-content: space-around;
+    font-family: Quicksand;
+
     &-language {
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem;
-      background-color: $color-olive;
-      
-      & img {
-        height: 2rem;
-        width: 2rem;
-        margin-right: 1rem;
-      }
-  
-      &:before,
-      &:after {
-        content: '';
-        flex: 1;
-      }
-  
-      &:before {
-        border-top-left-radius: 10px;  // Radio en la esquina superior izquierda
-      }
-  
-      &:after {
-        border-top-right-radius: 10px; // Radio en la esquina superior derecha
-      }
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; 
+        padding: 0.5rem;
+        background-color: $color-grey; 
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        text-align: right;
+        transition: background-color 0.3s;
+        font-family: Quicksand;
+
+        & img {
+            height: 1rem;
+            width: 1rem;
+            margin-right: 0.3rem;
+        }
+        &-text {
+            font-size: small;
+            text-align: right;
+            color: white; 
+        }
     }
-  
+
     &-welcome {
-      flex: 1;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: $color-linen;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+
+
+        &-text {
+            font-size: $h2-size;
+            padding: 0.5rem;
+            color: $color-grey; 
+        }
+        &-name {
+            font-size: $h3-size;
+            color: $color-blue; 
+            margin-bottom: 1rem;
+        }
+
+        &-button {
+            width: 100%; 
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            padding: 0.5rem 1rem;
+            background-color: $color-button-select; 
+            color: white; 
+            align-self: flex-end; 
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            &-img{
+                height: 1rem;
+                width: 1rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+            }
+        }
     }
-  }
-  
+}
