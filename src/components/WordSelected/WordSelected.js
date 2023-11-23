@@ -50,7 +50,6 @@ const WordSelected = ({wordId}) => {
             {dataWord  && (                
                 <ImagesWord 
                     wordSearch={dataWord.word}
-                    category={dataWord.categories_description}    
                 />
             )} 
             </section>

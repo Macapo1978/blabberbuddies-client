@@ -17,3 +17,5 @@ const SpeechButton = ({ textToSpeak, buttonClasses }) => {
    
   );
 };
+
+export default SpeechButton;

@@ -2,31 +2,54 @@
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
 
+$border-radius: 1rem;
+$padding-margin: 1rem;
+
 .card{
-    border-radius: 25px;
-    border: 2px solid $color-button-select;
-    background-color: $color-linen;
+    position: relative;
+    height: 10rem;
+    width: 20rem;
     margin: 1rem;
-    width: 9rem;
-    
+    padding: $padding-margin;
+    background-color: #fff;
+    border-radius: $border-radius;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    color: $color-blue;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-family: Quicksand;
 
-    &_title{
-        color: $color-blue;
+    &-text{
+        margin-bottom: 0.75rem;
     }
-    &_button{
-        border-radius: 3px;
-        padding: 0.5rem 1rem;
+    &-bottom{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         background-color: $color-button-select;
-        margin: 0 1rem;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        padding: 0.5rem;
+        text-align: center;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darkred;
+        }
+
         &--practise{
             background-color: $color-sunset;
             border: 3px solid $color-grey;
         }
+        .highlight-text {
+            color: #fff;
+            transition: background-color 0.3s;
+      
+            
+          }
     }
 
 }

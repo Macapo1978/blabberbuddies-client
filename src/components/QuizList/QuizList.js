@@ -2,7 +2,7 @@ import "./QuizList.scss";
 import QuizCard from "../QuizCard/QuizCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { async } from "q";
+
 
 const QuizList = ({userId}) => {
     const [quizData, setQuizData] = useState([]);
@@ -21,7 +21,7 @@ const QuizList = ({userId}) => {
     }, []);
 
     return (
-        <section className="quizzes">
+        <main className="quizzes">
             <h3 className="quizzes-title">Let's learn new words!</h3>
             <div className="quizzes-list">
                 {quizData.map(quiz => 
@@ -32,7 +32,7 @@ const QuizList = ({userId}) => {
                     />
                 )}
             </div>
-        </section>
+        </main>
     );
 };
 

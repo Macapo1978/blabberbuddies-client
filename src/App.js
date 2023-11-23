@@ -1,5 +1,4 @@
 import './App.scss';
-import Nav from "./components/Nav/Nav";
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -42,9 +41,9 @@ console.log("el usario es:",idUser);
 
   return (
     <BrowserRouter>
-      <Nav userId={idUser}/>
       <Routes>
-        <Route path="/" element={loggedIn && idUser ? <HomePage idUser={idUser} /> : <LoginForm onLogin={handleLogin} />} />
+        <Route path="/" element={<LoginForm/>}/>
+        <Route path='/vocabulary' element={<HomePage/>}/>
         <Route path="/quiz/:idQuiz/:idUser/:idWord" element={<QuizPage/>}/>
       </Routes>
     </BrowserRouter>

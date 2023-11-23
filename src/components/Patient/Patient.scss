@@ -1,0 +1,47 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.article {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    width: 20rem;
+  
+    &-language {
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      background-color: $color-olive;
+      
+      & img {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 1rem;
+      }
+  
+      &:before,
+      &:after {
+        content: '';
+        flex: 1;
+      }
+  
+      &:before {
+        border-top-left-radius: 10px;  // Radio en la esquina superior izquierda
+      }
+  
+      &:after {
+        border-top-right-radius: 10px; // Radio en la esquina superior derecha
+      }
+    }
+  
+    &-welcome {
+      flex: 1;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: $color-linen;
+    }
+  }
+  

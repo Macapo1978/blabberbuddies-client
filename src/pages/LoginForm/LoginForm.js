@@ -1,32 +1,42 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import './LoginForm.scss';
+import Patient from '../../components/Patient/Patient';
 
-const LoginForm = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const LoginForm = () => {
+  const [patientsData, setPatientsData] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    onLogin(username, password);
-  };
-
+  useEffect(() => {
+    const fetchAllPatients = async () => {
+        try {
+            const response = await axios(`${process.env.REACT_APP_BACKEND_URL}/api/patients`);
+            const data = response.data;
+            setPatientsData(data);
+console.log(data);
+        }catch(error){
+            console.log("Error fetching data patients.", error);
+        }
+    };
+    fetchAllPatients();
+  }, []);
+  
   return (
-    <div>
-      <h2>Login user</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Usuario:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Contraseña:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <main className='loginForm'>
+      <h3 className="loginForm-title">Hello Kids!Let's play and learn!</h3>
+      <div className="loginForm-list">
+          {patientsData.map(patient => 
+              <Patient 
+                  key={patient.id}
+                  patientId = {patient.id}
+                  userId={patient.user_id}
+                  namePatient = {patient.name}
+                  lastNamePatient = {patient.last_name}
+                  native_language_id= {patient.native_language_id}
+                  language= {patient.description}
+              />
+          )}
+      </div>
+    </main>
   );
 };
 
