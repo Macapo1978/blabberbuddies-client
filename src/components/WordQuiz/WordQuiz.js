@@ -41,6 +41,7 @@ const WordQuiz = ({wordList}) => {
                     <ImagesWord 
                     wordSearch={element.word}
                     imgPerPage={1}
+                    className={"images-imgsmall"}
                 />
                 ))}
 

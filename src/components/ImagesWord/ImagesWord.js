@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import './ImagesWord.scss';
 
-const ImagesWord = ({wordSearch, imgPerPage}) => {
+const ImagesWord = ({wordSearch, imgPerPage, className}) => {
     const [dataImages, setDataImages]=useState([]);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const ImagesWord = ({wordSearch, imgPerPage}) => {
         <section className="images">
            {dataImages.length > 0 ? (
                 dataImages.map((image, index) => (
-                    <img className="images-img" src={image.url} alt={wordSearch} key={index}></img>
+                    <img className={ className } src={image.url} alt={wordSearch} key={index}></img>
                 ))
            ) : (
                 <p className="images-text">Downloading images...</p>

@@ -71,6 +71,7 @@ const WordSelected = ({wordId}) => {
                 <ImagesWord 
                     wordSearch={dataWord.word}
                     imgPerPage={4}
+                    className={"images-imgbig"}
                 />
             )} 
             </section>
