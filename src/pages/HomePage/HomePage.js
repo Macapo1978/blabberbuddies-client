@@ -3,6 +3,7 @@ import Nav from "../../components/Nav/Nav";
 import QuizList from "../../components/QuizList/QuizList";
 import React, { useEffect, useState } from 'react';
 import { usePatientData } from '../../PatientDataContext';
+import Footer from '../../components/Footer/Footer';
 
 const HomePage = () => {
   const { patientData, updatePatientData } = usePatientData();
@@ -24,12 +25,13 @@ const HomePage = () => {
   }, []); 
 
   return (
-    <>
-    <Nav/>
-    <main className="home">
-      <QuizList userId={patientData?.userId} />
-    </main>
-    </>
+    <div className='ctn'>
+      <Nav/>
+      <main className="ctn__home">
+        <QuizList userId={patientData?.userId} />
+      </main>
+      <Footer/>
+    </div>
   );
 };
 
