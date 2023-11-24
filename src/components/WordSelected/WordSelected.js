@@ -9,13 +9,34 @@ import SpeechButton from '../SpeechButton/SpeechButton';
 const WordSelected = ({wordId}) => {
     const [dataWord, setDataWord] = useState({});
     const [translatedText, setTranslatedText] = useState();
+    const [translateLanguage, setTranslateLanguage] = useState();
+    
+    
+    useEffect(() => {
+        try{
+            const patientData = localStorage.getItem('patientData');
+            const patientObject = JSON.parse(patientData);
+        
+            if (patientObject) {
+                const translateLanguage = patientObject.language.slice(0, 2).toLowerCase();
+                console.log(translateLanguage);
+                setTranslateLanguage(translateLanguage);
+            } else {
+                console.log("Error getting language patient.")
+            }
+        } catch(error){
+            console.log("Error getting language user.", error)
+        }
+
+
+    }, [])
 
     useEffect(() => {
         const fetchWord = async () => {
             try{
                 const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/words/${wordId}`);
                 const data = response.data;
-                if (data){
+                if (data && translateLanguage){
                     setDataWord(data);
 
                     const translationResponse  = await axios
@@ -23,7 +44,7 @@ const WordSelected = ({wordId}) => {
                             {
                                 text: data.word,
                                 originLanguage: data.language_description,
-                                translateLanguage: "es" //aca tengo que poner el language del user
+                                translateLanguage: translateLanguage
                             }
                         );
                     const translationData = translationResponse.data;
@@ -36,10 +57,11 @@ const WordSelected = ({wordId}) => {
                 console.log("Error fetching data Word.")
             }
         }
+        if (translateLanguage){
+            fetchWord();
+        }
 
-        fetchWord();
-
-    }, [wordId]);
+    }, [wordId, translateLanguage]);
 
 
     return (
