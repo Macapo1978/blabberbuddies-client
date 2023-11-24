@@ -55,4 +55,8 @@ body {
     font-family: Quicksand, Helvetica, Arial, sans-serif;
     background-color: $color-linen;
     color: $color-grey;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }

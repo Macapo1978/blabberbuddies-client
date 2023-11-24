@@ -5,6 +5,7 @@ import './QuizPage.scss';
 import WordSelected from "../../components/WordSelected/WordSelected";
 import WordsList from "../../components/WordsList/WordsList";
 import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 
 const QuizPage = () => {
     const {idQuiz, idUser, idWord} = useParams();
@@ -55,6 +56,7 @@ const QuizPage = () => {
             <WordSelected wordId={wordSelected} />
             )}
         </main>
+        <Footer/>
         </>
     )
 };
