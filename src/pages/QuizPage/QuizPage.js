@@ -14,7 +14,6 @@ const QuizPage = () => {
 
     useEffect(() => {
         if (idWord !== "0" && idWord !== undefined) {
-            console.log(idWord, "estoy en quiz page id word")            
             setWordSelected(idWord);
         }
     }, [idWord]);
