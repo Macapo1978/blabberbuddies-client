@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import './LoginForm.scss';
 import Patient from '../../components/Patient/Patient';
-import ImgGirl from '../../assets/images/girl.png';
-import ImgBoy from '../../assets/images/boy.png';
+import ImgRight from '../../assets/images/logo_right.png';
+import ImgLeft from '../../assets/images/logo_left.png';
 import ImgSearch from '../../assets/images/search-icon.svg';
 
 const LoginForm = () => {
@@ -48,14 +48,14 @@ const LoginForm = () => {
     <main className='loginForm'>
       <section className="loginForm__hero">
           <div className="loginForm__hero-left">
-            <img className="loginForm__hero-left-img" src={ImgGirl} alt="Girl Icon"></img>
+            <img className="loginForm__hero-left-img" src={ImgLeft} alt="Girl Icon"></img>
           </div>
           <div className="loginForm__hero-middle">
             <h1 className="loginForm-title">Hello Kids!</h1>
             <h2 className="loginForm-subtitle">Let's play and learn!</h2>
           </div>
           <div className="loginForm__hero-right">
-            <img className="loginForm__hero-right-img" src={ImgBoy} alt="Boy Icon"></img>
+            <img className="loginForm__hero-right-img" src={ImgRight} alt="Boy Icon"></img>
           </div>
       </section>
       <section className="loginForm__search">

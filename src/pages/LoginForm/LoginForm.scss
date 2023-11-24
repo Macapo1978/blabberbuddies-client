@@ -2,6 +2,7 @@
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
 
+
 .loginForm{
     display: flex;
     flex-direction: column;
@@ -33,7 +34,14 @@
         &-left{
             &-img{
                 height: 5rem;
-                width: 4rem;
+                width: 6rem;
+            }
+            @include tablet{
+                width: 10rem;
+            }
+            @include desktop{
+                width: 15rem;
+                margin-left: 5rem;
             }
         }
 
@@ -57,8 +65,16 @@
         &-right{
             &-img{
                 height: 5rem;
-                width: 4rem;
+                width: 6rem;
             }
+            @include tablet{
+                width: 10rem;
+            }
+            @include desktop{
+                width: 20rem;
+                margin-left: 5rem;
+            }
+
         }
     }
     &__search{
@@ -77,6 +93,8 @@
             width: 20rem;
             color: $color-grey;
             padding: 0.5rem 1rem;
+            border: 1px solid $color-light-grey;
+            border-radius: 3px;
         }
         &-button{
             &-img{
