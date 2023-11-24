@@ -45,7 +45,6 @@ const WordSelected = ({wordId}) => {
     return (
 
         <section className="word">
-            
             <section className="word__image">
             {dataWord  && (                
                 <ImagesWord 

@@ -30,17 +30,17 @@ const WordsList = ({wordId, wordList, quizID, userID}) => {
     return (
         <section className="wordlist">
             {wordsData.map((element) => (
-        <Link
-          to={`/quiz/${quizID}/${userID}/${element.id}`}
-          key={element.id}
-        >
-          <button   
-            className={`wordlist__button ${element.id == wordId ? 'wordlist__button--selected':''}`} 
-            key={element.id} >
-                {element.word}
-          </button>
-        </Link>
-      ))}
+                <Link
+                to={`/quiz/${quizID}/${userID}/${element.id}`}
+                key={element.id}
+                >
+                <button   
+                    className={`wordlist__button ${element.id == wordId ? 'wordlist__button--selected':''}`} 
+                    key={element.id} >
+                        {element.word}
+                </button>
+                </Link>
+            ))}
         </section>
     );
 
