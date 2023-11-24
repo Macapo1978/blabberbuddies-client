@@ -1,0 +1,29 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.subnav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0.5rem 10rem;
+    width: 100%;
+    background-color: $color-white;
+
+    &__categories{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: $color-blue;
+
+        &-img{
+            height: 3rem;
+            width: 2.5rem;
+            margin-right: 1rem;
+        }
+    }
+
+}
+

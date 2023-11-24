@@ -6,6 +6,7 @@ import WordSelected from "../../components/WordSelected/WordSelected";
 import WordsList from "../../components/WordsList/WordsList";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
+import SubNav from "../../components/SubNav/SubNav";
 
 const QuizPage = () => {
     const {idQuiz, idUser, idWord} = useParams();
@@ -43,6 +44,7 @@ const QuizPage = () => {
     return (
         <>
         <Nav/>
+        <SubNav/>
         <main className="quiz">
             {wordSelected && (
             <WordSelected wordId={wordSelected} />
