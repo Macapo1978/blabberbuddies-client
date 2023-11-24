@@ -8,10 +8,6 @@ const ImagesWord = ({wordSearch}) => {
     useEffect(() => {
         const fetchImages = async () => {
             try{
-                
-                console.log("endpoint images ", `${process.env.REACT_APP_BACKEND_URL}/api/pexels/images`
-                )      
-                console.log(wordSearch)                 
                 const response = await axios
                     .post(`${process.env.REACT_APP_BACKEND_URL}/api/pexels/images`,{
                         query: wordSearch,

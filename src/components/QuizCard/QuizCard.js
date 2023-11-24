@@ -25,8 +25,12 @@ const QuizCard = ({dataQuiz, userId}) => {
         fetchQuizUser(userId, dataQuiz.id);        
     }, []);
 
+    const handleLinkClick = () => {
+        sessionStorage.setItem('quizName', dataQuiz.name);
+    };
+
     return(
-        <Link to={`/quiz/${dataQuiz.id}/${userId}/${wordID}`}>
+        <Link to={`/quiz/${dataQuiz.id}/${userId}/${wordID}`} onClick={handleLinkClick}>
             <article className="card">
                 <h3 className="card-text">{dataQuiz.name}</h3>
             </article>
