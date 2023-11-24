@@ -5,8 +5,8 @@
 .subnav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem 10rem;
     width: 100%;
     background-color: $color-white;
@@ -17,6 +17,19 @@
         justify-content: center;
         align-items: center;
         color: $color-blue;
+
+        &-img{
+            height: 3rem;
+            width: 2.5rem;
+            margin-right: 1rem;
+        }
+    }
+    &__active{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: $color-orange;
 
         &-img{
             height: 3rem;
