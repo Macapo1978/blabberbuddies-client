@@ -30,7 +30,7 @@ const QuizCard = ({dataQuiz, userId}) => {
     };
 
     return(
-        <Link to={`/quiz/${dataQuiz.id}/${userId}/${wordID}`} onClick={handleLinkClick}>
+        <Link to={`/quiz/${dataQuiz.id}/${userId}/${wordID}/0`} onClick={handleLinkClick}>
             <article className="card">
                 <h3 className="card-text">{dataQuiz.name}</h3>
             </article>

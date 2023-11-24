@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginForm from "./pages/LoginForm/LoginForm";
 import HomePage from "./pages/HomePage/HomePage";
@@ -15,7 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<LoginForm/>}/>
             <Route path='/vocabulary' element={<HomePage/>}/>
-            <Route path="/quiz/:idQuiz/:idUser/:idWord" element={<QuizPage/>}/>
+            <Route path="/quiz/:idQuiz/:idUser/:idWord/:play" element={<QuizPage/>}/>
           </Routes>
         </div>
       </PatientDataProvider>

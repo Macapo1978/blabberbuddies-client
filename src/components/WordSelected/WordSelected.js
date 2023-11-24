@@ -1,7 +1,6 @@
 import "./WordSelected.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import TranslateWord from '../TranslateWord/TranslateWord';
 import ImagesWord from '../ImagesWord/ImagesWord';
 import SpeechButton from '../SpeechButton/SpeechButton'; 
 
@@ -71,6 +70,7 @@ const WordSelected = ({wordId}) => {
             {dataWord  && (                
                 <ImagesWord 
                     wordSearch={dataWord.word}
+                    imgPerPage={4}
                 />
             )} 
             </section>
