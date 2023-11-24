@@ -12,5 +12,10 @@
     @include tablet {
         flex-direction: row;
     }
+    @include desktop {
+        padding-top: 2rem;
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
     
 }

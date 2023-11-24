@@ -34,7 +34,7 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: $color-button-select; /* Cambia el color al pasar el ratón sobre el botón */
+            background-color: $color-button-select;
         }
       
         &--selected{

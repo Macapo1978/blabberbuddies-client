@@ -37,7 +37,7 @@ const WordsList = ({wordId, wordList, quizID, userID}) => {
                 <button   
                     className={`wordlist__button ${element.id == wordId ? 'wordlist__button--selected':''}`} 
                     key={element.id} >
-                        {element.word}
+                        {element?.word.toUpperCase()}
                 </button>
                 </Link>
             ))}

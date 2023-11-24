@@ -18,29 +18,54 @@
     &__image{
         width: auto;
         height: auto;
+        margin: 1rem;
     }
 
     &__card{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
         padding: 1rem;
-        width: auto;
+        width: 98%;
         height: auto;
+        border-top: 1px solid $color-light-grey;
+
+        @include tablet {
+            flex-direction: row;
+        }
 
         &-button{
             background-color: $color-button-select;
             color: $color-linen;
-            border-radius: 3px;
             padding: 0.5rem 1rem;
-            margin: 0 1rem;
-            width: 10rem;
-            height: 3rem;
+            border-radius: 45px;
+            margin: 0.5rem;
+            width: 16rem;
+            height: 5rem;
+            transition: background-color 0.3s ease;
+      
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
 
-            &--secondary{
-                background-color: $color-blue;
+            &:hover {
+                background-color: $color-olive; 
             }
+            
+            &--secondary{
+                background-color: $color-grey;
+
+                &:hover {
+                    background-color: $color-olive; 
+                }
+            }
+
+
+           
         }
+
+       
     }
    
 }
