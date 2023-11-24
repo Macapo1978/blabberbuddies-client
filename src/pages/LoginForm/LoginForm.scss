@@ -7,13 +7,88 @@
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    padding: 2rem;
+    
     font-family: Quicksand;
 
-    &-title{
-        font-size: $h1-size;
-        margin: 1rem;
+
+    &__hero{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: $color-white;
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+        @include tablet{
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+        @include desktop{
+            padding-left: 12rem;
+            padding-right: 12rem;
+        }
+
+        &-left{
+            &-img{
+                height: 5rem;
+                width: 4rem;
+            }
+        }
+
+        &-middle{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around;
+            align-items: center;
+            height: 8rem;
+            width: 100%;
+            padding: 2rem;
+            background-color: $color-white;
+        
+            &-title{
+                font-size: $h1-size;
+            }
+            &-subtitle{
+                font-size: $h2-size;
+            }
+        }
+        &-right{
+            &-img{
+                height: 5rem;
+                width: 4rem;
+            }
+        }
     }
+    &__search{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-blue;
+        height: 5rem;
+        width: 100%;
+        color: $color-white;
+
+        
+        &-input{
+            height: 2.5rem;
+            width: 20rem;
+            color: $color-grey;
+            padding: 0.5rem 1rem;
+        }
+        &-button{
+            &-img{
+                height: 1rem;
+                width: 1rem;
+                margin: 0 0.5rem;
+            }
+        }
+       
+
+    }
+
     &-list{
         display: flex;
         flex-direction: column;
