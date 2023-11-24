@@ -1,9 +1,21 @@
 @import '../../styles/partials/variables';
 @import '../../styles/partials/global';
+@import '../../styles/partials/mixins';
 
 .quiz {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     background-color: $color-linen;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+    }
+    @include desktop {
+        padding-top: 2rem;
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
+    
 }

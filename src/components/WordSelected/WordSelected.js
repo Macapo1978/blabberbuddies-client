@@ -45,7 +45,6 @@ const WordSelected = ({wordId}) => {
     return (
 
         <section className="word">
-            
             <section className="word__image">
             {dataWord  && (                
                 <ImagesWord 
@@ -63,6 +62,7 @@ const WordSelected = ({wordId}) => {
                         textToSpeak={translatedText}
                         buttonClasses="word__card-button word__card-button--secondary"
                     />)}
+                
             </article>
         </section>
 

@@ -5,17 +5,21 @@
 
 .images{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    flex-direction: row;
     width: 95%;
-    height: auto;
+    margin: 0 auto; 
     color: $color-linen;
 
+
     &-img{
-        height: 6rem;
-        width: 6rem;
+        height: 8rem;
+        width: 7rem;
         border-radius: 5px;
         margin: 0.4rem;
+        border: 2px solid #e0e0e0; 
+        box-sizing: border-box;
+        flex: 0 0 calc(50% - 0.8rem);
     }
     &-text{
         color: $color-blue;

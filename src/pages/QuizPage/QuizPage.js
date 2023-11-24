@@ -44,6 +44,9 @@ const QuizPage = () => {
         <>
         <Nav/>
         <main className="quiz">
+            {wordSelected && (
+            <WordSelected wordId={wordSelected} />
+            )}
             {wordList.length > 0 && (
             <WordsList 
                 wordId={wordSelected}
@@ -51,9 +54,6 @@ const QuizPage = () => {
                 quizID={idQuiz}
                 userID={idUser}
             />
-            )}
-            {wordSelected && (
-            <WordSelected wordId={wordSelected} />
             )}
         </main>
         <Footer/>
