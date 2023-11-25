@@ -4,11 +4,14 @@ import axios from "axios";
 import ImagesWord   from '../ImagesWord/ImagesWord';
 import SpeechButton from '../SpeechButton/SpeechButton'; 
 
+
 const WordQuiz = ({wordList}) => {
     const [wordsData, setWordsData] = useState([]);
     const [imagesData, setImagesData] = useState([]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [hiddenIndices, setHiddenIndices] = useState([]);
+    const [message, setMessage] = useState("What's this?");
+    const [endQuiz, setEndQuiz] = useState(false);
 
     useEffect(() => {
         const fetchWordsData = async () => {
@@ -25,7 +28,6 @@ const WordQuiz = ({wordList}) => {
                 const randomWordsData = randomOrder.map((index) => allData[index]);
                 setWordsData(randomWordsData);
                 setImagesData(allData);
-console.log(allData, "esto es lo que hay en imagesData")                
 
             } catch(error){
                 console.log("Error fetching data list.", error)
@@ -36,45 +38,60 @@ console.log(allData, "esto es lo que hay en imagesData")
         }
     }, [wordList]);
 
-    const handleSpeechButtonClick = (wordId, index) => {
+
+    const handleSpeechButtonClick = (wordId, wordName, index) => {
         if (imagesData[currentImageIndex]?.id === wordId) {
-          setCurrentImageIndex(currentImageIndex + 1);
-          setHiddenIndices((prevIndices) => [...prevIndices, index]);
+            setCurrentImageIndex(currentImageIndex + 1);
+            setHiddenIndices((prevIndices) => [...prevIndices, index]);
+            setMessage("Good Job!!! Now, what's this?");
+            if (currentImageIndex === imagesData.length - 1){
+                setEndQuiz(true);
+            }
+        } else {
+           setMessage(`Not "${wordName}", keep trying.`);
         }
-        // Puedes realizar otras acciones según tus necesidades
       };
 
-    return (
+      return (
         <section className="wordquiz">
-           
-            <section className="wordquiz__images">
-                {imagesData.slice(currentImageIndex, currentImageIndex + 1).map((element) => (
-                    <ImagesWord 
-                    key={element.id}
+          {!endQuiz ? (
+            <>
+              <section className="wordquiz__message">
+                <p>{message}</p>
+              </section>
+              <section className="wordquiz__images">
+                {imagesData.slice(currentImageIndex, currentImageIndex + 1).map((element, index) => (
+                  <ImagesWord 
+                    key={index}
                     wordSearch={element.word}
                     imgPerPage={4}
-                />
+                  />
                 ))}
-                
-            </section>
-            <section className="wordquiz__words">
+              </section>
+              <section className="wordquiz__words">
                 {wordsData.map((element, index) => (
-                    !hiddenIndices.includes(index) && (
-                        <section className="wordquiz__words__ctn">
-                            <div className="wordquiz__words__ctn-text" key={index} onClick={() => handleSpeechButtonClick(element.id, index)}>
-                                <p>{element?.word?.toUpperCase()}</p>
-                            </div>
-                            <SpeechButton
-                                key={index}
-                                textToSpeak={element.word}
-                            />
-                        </section>
-                    )
+                  !hiddenIndices.includes(index) && (
+                    <section className="wordquiz__words__ctn" key={`word-${index}`}>
+                      <div className="wordquiz__words__ctn-text" onClick={() => handleSpeechButtonClick(element.id, element.word, index)}>
+                        <p>{element?.word?.toUpperCase()}</p>
+                      </div>
+                      <SpeechButton
+                        key={`speech-button-${index}`}
+                        textToSpeak={element.word}
+                      />
+                    </section>
+                  )
                 ))}
-
+              </section>
+            </>
+          ) : (
+            <section>
+              End game
             </section>
+          )}
         </section>
-    );
+      );
+      
 
 };
 

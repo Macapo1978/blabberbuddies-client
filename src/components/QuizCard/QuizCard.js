@@ -27,6 +27,7 @@ const QuizCard = ({dataQuiz, userId}) => {
 
     const handleLinkClick = () => {
         sessionStorage.setItem('quizName', dataQuiz.name);
+        sessionStorage.setItem('quizID', dataQuiz.id);
     };
 
     return(
