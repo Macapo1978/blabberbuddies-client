@@ -4,18 +4,44 @@
 
 .wordquiz{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     &__images{
-        padding-right: 10rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
     }
     &__words{
-        padding: 2rem 3rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 1rem;
 
-        &-button{
-            height: 4.5rem;
+        &__ctn{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+
+            &-text{
+                width: 70%;
+                border-radius: 10px;
+                border: 1px solid $color-button-select;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                width: 12rem;
+                text-align: center;
+            }
+
         }
 
+
+       
     }
 }

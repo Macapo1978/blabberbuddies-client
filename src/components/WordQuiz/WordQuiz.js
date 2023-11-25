@@ -1,13 +1,14 @@
 import "./WordQuiz.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ImagesWord from '../ImagesWord/ImagesWord';
+import ImagesWord   from '../ImagesWord/ImagesWord';
 import SpeechButton from '../SpeechButton/SpeechButton'; 
-
 
 const WordQuiz = ({wordList}) => {
     const [wordsData, setWordsData] = useState([]);
     const [imagesData, setImagesData] = useState([]);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [hiddenIndices, setHiddenIndices] = useState([]);
 
     useEffect(() => {
         const fetchWordsData = async () => {
@@ -24,6 +25,7 @@ const WordQuiz = ({wordList}) => {
                 const randomWordsData = randomOrder.map((index) => allData[index]);
                 setWordsData(randomWordsData);
                 setImagesData(allData);
+console.log(allData, "esto es lo que hay en imagesData")                
 
             } catch(error){
                 console.log("Error fetching data list.", error)
@@ -34,24 +36,40 @@ const WordQuiz = ({wordList}) => {
         }
     }, [wordList]);
 
+    const handleSpeechButtonClick = (wordId, index) => {
+        if (imagesData[currentImageIndex]?.id === wordId) {
+          setCurrentImageIndex(currentImageIndex + 1);
+          setHiddenIndices((prevIndices) => [...prevIndices, index]);
+        }
+        // Puedes realizar otras acciones según tus necesidades
+      };
+
     return (
         <section className="wordquiz">
+           
             <section className="wordquiz__images">
-                {imagesData.map((element) => (
+                {imagesData.slice(currentImageIndex, currentImageIndex + 1).map((element) => (
                     <ImagesWord 
+                    key={element.id}
                     wordSearch={element.word}
-                    imgPerPage={1}
-                    className={"images-imgsmall"}
+                    imgPerPage={4}
                 />
                 ))}
-
+                
             </section>
             <section className="wordquiz__words">
-                {wordsData.map((element) => (
-                    <SpeechButton
-                    textToSpeak={element.word}
-                    buttonClasses="wordquiz__words-button"
-                    />
+                {wordsData.map((element, index) => (
+                    !hiddenIndices.includes(index) && (
+                        <section className="wordquiz__words__ctn">
+                            <div className="wordquiz__words__ctn-text" key={index} onClick={() => handleSpeechButtonClick(element.id, index)}>
+                                <p>{element?.word?.toUpperCase()}</p>
+                            </div>
+                            <SpeechButton
+                                key={index}
+                                textToSpeak={element.word}
+                            />
+                        </section>
+                    )
                 ))}
 
             </section>
