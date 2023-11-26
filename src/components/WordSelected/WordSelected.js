@@ -18,7 +18,6 @@ const WordSelected = ({wordId}) => {
         
             if (patientObject) {
                 const translateLanguage = patientObject.language.slice(0, 2).toLowerCase();
-                console.log(translateLanguage);
                 setTranslateLanguage(translateLanguage);
             } else {
                 console.log("Error getting language patient.")
