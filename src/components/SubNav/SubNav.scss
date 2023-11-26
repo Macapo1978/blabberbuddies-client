@@ -5,9 +5,9 @@
 .subnav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0.5rem 10rem;
+    padding: 0.5rem 1rem;
     width: 100%;
     background-color: $color-white;
 
@@ -20,7 +20,7 @@
         &__img{
             height: 3rem;
             width: 2.5rem;
-            margin-right: 1rem;
+            margin: 1rem;
         }
 
     }
@@ -41,4 +41,6 @@
     }
 
 }
+
+
 

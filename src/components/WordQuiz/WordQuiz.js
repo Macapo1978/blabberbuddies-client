@@ -61,29 +61,31 @@ const WordQuiz = ({wordList}) => {
               <section className="wordquiz__message">
                 <p>{message}</p>
               </section>
-              <section className="wordquiz__images">
-                {imagesData.slice(currentImageIndex, currentImageIndex + 1).map((element, index) => (
-                  <ImagesWord 
-                    key={index}
-                    wordSearch={element.word}
-                    imgPerPage={4}
-                  />
-                ))}
-              </section>
-              <section className="wordquiz__words">
-                {wordsData.map((element, index) => (
-                  !hiddenIndices.includes(index) && (
-                    <section className="wordquiz__words__ctn" key={`word-${index}`}>
-                      <div className="wordquiz__words__ctn-text" onClick={() => handleSpeechButtonClick(element.id, element.word, index)}>
-                        <p>{element?.word?.toUpperCase()}</p>
-                      </div>
-                      <SpeechButton
-                        key={`speech-button-${index}`}
-                        textToSpeak={element.word}
-                      />
-                    </section>
-                  )
-                ))}
+              <section className="wordquiz__ctn">
+                <section className="wordquiz__ctn__images">
+                    {imagesData.slice(currentImageIndex, currentImageIndex + 1).map((element, index) => (
+                    <ImagesWord 
+                        key={index}
+                        wordSearch={element.word}
+                        imgPerPage={4}
+                    />
+                    ))}
+                </section>
+                <section className="wordquiz__ctn__words">
+                    {wordsData.map((element, index) => (
+                    !hiddenIndices.includes(index) && (
+                        <section className="wordquiz__ctn__words__ctn" key={`word-${index}`}>
+                            <div className="wordquiz__ctn__words__ctn-text" onClick={() => handleSpeechButtonClick(element.id, element.word, index)}>
+                                <p>{element?.word?.toUpperCase()}</p>
+                            </div>
+                            <SpeechButton
+                                key={`speech-button-${index}`}
+                                textToSpeak={element.word}
+                            />
+                        </section>
+                    )
+                    ))}
+                </section>
               </section>
             </>
           ) : (
