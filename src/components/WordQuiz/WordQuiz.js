@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ImagesWord   from '../ImagesWord/ImagesWord';
 import SpeechButton from '../SpeechButton/SpeechButton'; 
-
+import EndQuiz from '../EndQuiz/EndQuiz';
 
 const WordQuiz = ({wordList}) => {
     const [wordsData, setWordsData] = useState([]);
@@ -89,10 +89,7 @@ const WordQuiz = ({wordList}) => {
               </section>
             </>
           ) : (
-            <section className="wordquiz__end animation">
-                <h2 className="wordquiz__h2">Good Job!!!</h2>
-                <h3 className="wordquiz__h3 ">Keep it up and keep learning.</h3>
-            </section>
+           <EndQuiz />
           )}
         </section>
       );
