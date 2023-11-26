@@ -23,7 +23,7 @@
 
     &__card{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
         padding: 1rem;
         width: 98%;
@@ -34,38 +34,13 @@
             flex-direction: row;
         }
 
-        &-button{
-            background-color: $color-button-select;
-            color: $color-linen;
-            padding: 0.5rem 1rem;
-            border-radius: 45px;
-            margin: 0.5rem;
-            width: 16rem;
-            height: 5rem;
-            transition: background-color 0.3s ease;
-      
+        &__detail{
             display: flex;
             flex-direction: row;
-            justify-content: center;
             align-items: center;
-
-            &:hover {
-                background-color: $color-olive; 
-            }
-            
-            &--secondary{
-                background-color: $color-grey;
-
-                &:hover {
-                    background-color: $color-olive; 
-                }
-            }
-
-
-           
         }
+    }
 
        
-    }
-   
 }
+   

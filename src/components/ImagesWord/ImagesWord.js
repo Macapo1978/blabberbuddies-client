@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import './ImagesWord.scss';
 
-const ImagesWord = ({wordSearch}) => {
+const ImagesWord = ({wordSearch, imgPerPage}) => {
     const [dataImages, setDataImages]=useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const ImagesWord = ({wordSearch}) => {
                 const response = await axios
                     .post(`${process.env.REACT_APP_BACKEND_URL}/api/pexels/images`,{
                         query: wordSearch,
-                        perPage: 4
+                        perPage: imgPerPage
                     });
                 const data = response.data;
 
@@ -22,10 +22,10 @@ const ImagesWord = ({wordSearch}) => {
                 console.log("Error fetching images.")
             }
         }
-        if (wordSearch){
+        if (wordSearch && imgPerPage){
             fetchImages();
         }
-    }, [wordSearch]);
+    }, [wordSearch, imgPerPage]);
 
     return (
         <section className="images">

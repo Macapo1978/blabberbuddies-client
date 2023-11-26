@@ -1,7 +1,6 @@
 import "./WordSelected.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import TranslateWord from '../TranslateWord/TranslateWord';
 import ImagesWord from '../ImagesWord/ImagesWord';
 import SpeechButton from '../SpeechButton/SpeechButton'; 
 
@@ -19,7 +18,6 @@ const WordSelected = ({wordId}) => {
         
             if (patientObject) {
                 const translateLanguage = patientObject.language.slice(0, 2).toLowerCase();
-                console.log(translateLanguage);
                 setTranslateLanguage(translateLanguage);
             } else {
                 console.log("Error getting language patient.")
@@ -71,20 +69,25 @@ const WordSelected = ({wordId}) => {
             {dataWord  && (                
                 <ImagesWord 
                     wordSearch={dataWord.word}
+                    imgPerPage= {4}
                 />
             )} 
             </section>
             <article className="word__card">
-                <SpeechButton
-                    textToSpeak={dataWord.word}
-                    buttonClasses="word__card-button"
-                />
-                {translatedText  && (
+                <div className="word__card__detail">
+                    <p>{dataWord?.word?.toUpperCase()}</p>
                     <SpeechButton
-                        textToSpeak={translatedText}
-                        buttonClasses="word__card-button word__card-button--secondary"
-                    />)}
-                
+                        textToSpeak={dataWord.word}
+                    />
+                </div>
+                {translatedText  && (
+                    <div className="word__card__detail">
+                        <p>{translatedText?.toUpperCase()}</p>
+                        <SpeechButton
+                            textToSpeak={translatedText}
+                        />
+                    </div>
+                )}
             </article>
         </section>
 

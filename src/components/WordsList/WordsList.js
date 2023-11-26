@@ -2,7 +2,6 @@ import "./WordsList.scss";
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import WordSelected from "../WordSelected/WordSelected";
 
 const WordsList = ({wordId, wordList, quizID, userID}) => {
     const [wordsData, setWordsData] = useState([]);
@@ -31,7 +30,7 @@ const WordsList = ({wordId, wordList, quizID, userID}) => {
         <section className="wordlist">
             {wordsData.map((element) => (
                 <Link
-                to={`/quiz/${quizID}/${userID}/${element.id}`}
+                to={`/quiz/${quizID}/${userID}/${element.id}/0`}
                 key={element.id}
                 >
                 <button   

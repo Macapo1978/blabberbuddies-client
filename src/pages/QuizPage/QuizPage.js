@@ -7,9 +7,10 @@ import WordsList from "../../components/WordsList/WordsList";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import SubNav from "../../components/SubNav/SubNav";
+import WordQuiz from "../../components/WordQuiz/WordQuiz";
 
 const QuizPage = () => {
-    const {idQuiz, idUser, idWord} = useParams();
+    const {idQuiz, idUser, idWord, play} = useParams();
     const [wordSelected, setWordSelected] = useState();
 
     useEffect(() => {
@@ -45,16 +46,26 @@ const QuizPage = () => {
         <Nav/>
         <SubNav/>
         <main className="quiz">
-            {wordSelected && (
-            <WordSelected wordId={wordSelected} />
-            )}
-            {wordList.length > 0 && (
-            <WordsList 
-                wordId={wordSelected}
-                wordList={wordList.map(item => item.word_id)} 
-                quizID={idQuiz}
-                userID={idUser}
-            />
+            {play === '0' ? (
+                <>
+                {wordSelected && (
+                <WordSelected wordId={wordSelected} />
+                )}
+                {wordList.length > 0 && (
+                <WordsList 
+                    wordId={wordSelected}
+                    wordList={wordList.map(item => item.word_id)} 
+                    quizID={idQuiz}
+                    userID={idUser}
+                />
+                )}
+                </>
+            ) : (
+                <>
+                {wordList && (
+                    <WordQuiz wordList={wordList.map(item => item.word_id)}/>
+                )}
+                </>
             )}
         </main>
         <Footer/>
