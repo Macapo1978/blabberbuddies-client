@@ -11,31 +11,33 @@
     width: 100%;
     background-color: $color-white;
 
-    &__categories{
+    &__option {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        color: $color-blue;
 
-        &-img{
+        &__img{
             height: 3rem;
             width: 2.5rem;
             margin-right: 1rem;
         }
+
     }
-    &__active{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        color: $color-orange;
 
-        &-img{
-            height: 3rem;
-            width: 2.5rem;
-            margin-right: 1rem;
-        }
+    
+
+
+    &__categories{
+        color: $color-blue;
+    }
+
+    &__quiz{
+        color: $color-olive
+    }
+
+    &__active{
+        color: $color-orange;
     }
 
 }

@@ -12,6 +12,7 @@ const WordQuiz = ({wordList}) => {
     const [hiddenIndices, setHiddenIndices] = useState([]);
     const [message, setMessage] = useState("What's this?");
     const [endQuiz, setEndQuiz] = useState(false);
+    const [pointQuiz, setPointQuiz] = useState(0);
 
     useEffect(() => {
         const fetchWordsData = async () => {
@@ -47,6 +48,7 @@ const WordQuiz = ({wordList}) => {
             if (currentImageIndex === imagesData.length - 1){
                 setEndQuiz(true);
             }
+            setPointQuiz(pointQuiz + 1);
         } else {
            setMessage(`Not "${wordName}", keep trying.`);
         }
@@ -85,8 +87,9 @@ const WordQuiz = ({wordList}) => {
               </section>
             </>
           ) : (
-            <section>
-              End game
+            <section className="wordquiz__end animation">
+                <h2 className="wordquiz__h2">Good Job!!!</h2>
+                <h3 className="wordquiz__h3 ">Keep it up and keep learning.</h3>
             </section>
           )}
         </section>

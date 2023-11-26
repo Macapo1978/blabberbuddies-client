@@ -61,4 +61,44 @@
         }
       
     }
+    &__end {
+        padding: 5rem;
+        text-align: center;
+        color: $color-button-select; 
+        margin: 10rem;
+        position: relative;
+        
+        &__h2{
+            font-size: $h2-size;
+            margin: 3rem;
+            height: 5rem;
+        }
+
+
+      }
 }
+
+.animation {
+    position: relative;
+  
+    h2,
+    h3 {
+      transform-origin: center; 
+      transform: rotate(0deg);
+      animation: rotateInOut 2s ease-in-out infinite;
+    }
+  
+    h3 {
+      animation-delay: 1s;
+    }
+  
+    @keyframes rotateInOut {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(180deg); 
+      }
+    }
+  }
+  
