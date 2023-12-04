@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginForm from "./pages/LoginForm/LoginForm";
 import HomePage from "./pages/HomePage/HomePage";
 import QuizPage from './pages/QuizPage/QuizPage';
+import Presentation from './pages/Presentation/Presentation';
 import { PatientDataProvider } from './PatientDataContext';
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
       <PatientDataProvider>
         <div className="app-container">
           <Routes>
-            <Route path="/" element={<LoginForm/>}/>
+            <Route path="/" element={<Presentation/>}/>
+            <Route path="/loginForm" element={<LoginForm/>}/>
             <Route path='/vocabulary' element={<HomePage/>}/>
             <Route path="/quiz/:idQuiz/:idUser/:idWord/:play" element={<QuizPage/>}/>
           </Routes>
