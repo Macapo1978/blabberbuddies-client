@@ -9,7 +9,7 @@ const Nav = () => {
 
     return (
         <nav className="nav">
-            <Link to="/">
+            <Link to="/loginForm">
                 <section className="nav__logo">
                     <img src={logo} alt="Blabber Buddies logo" className='nav__logo-img' />
                     Blabber Buddies
